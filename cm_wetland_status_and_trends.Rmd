@@ -19,4 +19,39 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Introduction
+
+
+# Study Area
+
+![](G:/NaturalResources/Reinier/Documents/Documents/Git/cm_plant_community_classification/study_area_map.png)
+
+# Methods
+
+## Wetland Mapping
+
+To get an initial idea of where wetlands may be located in the park system, the latest National Wetland Inventory (NWI) data was examined using GIS software.  Using maps produced from the NWI data, reconnaissance site visits were conducted to better understand the accuracy of the NWI data.  It became clear early on that the NWI polygons were, at best, a very coarse representation of wetland locations in the park and that selecting wetlands based only on NWI polygons would not provide an accurate depiction of the resource.  Ultimately, a decision was made to look beyond the NWI polygons and try to accurately map as many wetlands as could be found within the park district while staying within the time and resource limits of the grant agreement.
+
+For each reservation, maps were produced that included NWI polygons, drainage features (swales, ditched, streams and rivers), soil map units, two-foot elevation contours, modeled aquatic features and any previously mapped wetlands.  These maps were used to identify areas with high potential to support wetlands.  After reviewing maps, on-the-ground surveys were conducted to locate and map wetlands.  These surveys were led by Cleveland Metroparks Wetland Ecologist, who has several years of experience delineating and assessing Ohio wetlands.
+
+Given the size of the area to be surveyed (23,000+ acres), full wetland delineations could not be performed for each wetland area.  So to accomplish the project goals, wetland determinations were based on visual field estimates of percent cover of hydrophytic vegetation and observations of wetland hydrology indicators.  Soil profiles were generally not examined as part of the wetland mapping effort.  This “rapid” approach to on-the-ground wetland identification and mapping allowed for efficient survey of large areas and resulted in maps that are much more accurate than current NWI maps but that in some cases may not be as refined as a full wetland delineation using U.S. Army Corps of Engineers (USACE) protocols.  
+
+When a wetland was located in the field, the boundaries were mapped with a Trimble GeoXT Standard Edition handheld GPS unit with Floodlight technology which improves accuracy under forest canopy.  In most cases, polygon features were collected by walking around the perimeter of the wetland as the GPS unit recorded positions every second.  In the case of a few very large wetland complexes, line and point features were collected and used in conjunction with high-resolution aerial images within a GIS environment to create the wetland feature.
+
+Prior to merging features collected in the field with the final wetland mapping product, the data were refined using several GIS tools.  First, raw data files were transferred from the handheld GPS unit to Trimble’s GPS Pathfinder Office software for post-processing.  The software used local NOAA base station data to correct the raw GPS positions.  The corrected features were then exported in ESRI shapefile format to a network file location.  Those shapefiles were then put through a vector file “cleaning” process within the GRASS GIS environment (GRASS Development Team, 2016).  Finally, shapefiles were visually examined in QGIS (QGIS Development Team, 2016) and any remaining invalid geometries were manually corrected.  The final, clean shapefiles were then imported to the master layer in a PostgreSQL database with a PostGIS spatial extension (The PostgreSQL Global Development Group, 2016; PostGIS Project Steering Committee, 2016).
+
+## Wetland Classification
+
+After boundary mapping was complete, each wetland was visited and classified according to its physical and biological attributes.  Physical attribute classification was focused on hydrogeomorphic characteristics.  The Landscape, Landform, Water Flow Path and Waterbody Type (LLWW) classification system (Tiner, 2014) was used in conjunction with the Cowardin Classification System (Federal Geographic Data Committee, 2013) to characterize each wetland.  Data was recorded using the dichotomous keys and mapping codes provided in Tiner, 2014.
+
+Early reviews of the field data revealed that several wetlands that were located in a 100-year floodplain position were not given a “floodplain” label due to a lack of on-the-ground evidence that it was an “active” floodplain.  Furthermore, Version 3.0 of the LLWW keys allowed for more detailed landscape position classification for areas that are on a 100-year floodplain but are not flooded frequently.  So, to update and add consistency to the final classifications, an intersection of the final wetland layer with a floodzone layer was used to apply a “floodplain” (landform) and “terrrene riparian” (landscape position) descriptor to any wetland that did not already have it but intersected a flood zone area.    
+
+Finally, the dominant plant community within each wetland was described using a classification system developed specifically for wetlands in the LEAP region and modified from NatureServe’s Ecological Communities and Systems classification (NatureServe, 2015).
+
+
+# Results
+
+![](G:/NaturalResources/Reinier/Documents/Documents/Git/cm_wetland_status_and_trends/oram_distribution_all_12-1-14.jpeg)
+
+
 
